@@ -14,8 +14,8 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
   <mvc:annotation-driven></mvc:annotation-driven>
-  <!-- Spring will search for beans in com.cg package -->
-  <context:component-scan base-package="com.capgemini" />
+  <!-- Spring will search for beans in com.capgemini.ems package -->
+  <context:component-scan base-package="com.capgemini.ems" />
   <!-- Will take care of @Transactional -->
   <tx:annotation-driven transaction-manager="transactionManager"/>
   <!-- Will take care of all jpa transactions -->
@@ -26,7 +26,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
   <bean id="emFactory" 
      class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
      <property name="dataSource" ref="dSource"/>
-     <property name="packagesToScan" value="com.cg.bean"/>
+     <property name="packagesToScan" value="com.capgemini.ems.bean"/>
      <property name="persistenceProviderClass" 
            value="org.hibernate.jpa.HibernatePersistenceProvider"/>
      <property name="jpaPropertyMap">

@@ -16,182 +16,187 @@ public class EmployeeBean implements Serializable {
 	
 	@Id
 	@Column(name = "emp_id")
-	private String empId;
+	private String id;
 	
 	@Column(name = "emp_first_name")
-	private String empFirstName;
+	private String firstName;
 	
 	@Column(name = "emp_last_name")
-	private String empLastName;
+	private String lastName;
 	
 	@Column(name = "emp_date_of_birth")
-	private Date empDOB;
+	private Date DOB;
 	
 	@Column(name = "emp_date_of_joining")
-	private Date empDOJ;
+	private Date DOJ;
 	
-	@Column(name = "emp_date_id")
-	private int empDeptId;
+	@Column(name = "emp_dept_id")
+	private int deptId;
 	
 	@Column(name = "emp_grade")
-	private String empGrade;
+	private String grade;
 	
 	@Column(name = "emp_designation")
-	private String empDesignation;
+	private String designation;
 	
 	@Column(name = "emp_basic")
-	private int empBasic;
+	private int basic;
 	
 	@Column(name = "emp_gender")
-	private char empGender;
+	private char gender;
 	
 	@Column(name = "emp_marital_status")
-	private String empMarital;
+	private String marital;
 	
 	@Column(name = "emp_home_address")
-	private String empAddress;
+	private String address;
 	
 	@Column(name = "emp_contact_num")
-	private String empContact;
+	private String contact;
 	
 	@Column(name = "mgr_id")
 	private String mgrId;
 	
 	@Column(name = "emp_leave_bal")
-	private int empLeaveBal;
+	private int leaveBal;
 	
 	public EmployeeBean() {	
 	}
-	
-	
-	//Parameterized constructor for Employee
-	public EmployeeBean(String empId, String empFirstName, String empLastName,
-			Date empDOB, Date empDOJ, int empDeptId, String empGrade,
-			String empDesignation, int empBasic, char empGender,
-			String empMarital, String empAddress, String empContact,
-			String mgrId, int empLeaveBal) {
-		this.empId = empId;
-		this.empFirstName = empFirstName;
-		this.empLastName = empLastName;
-		this.empDOB = empDOB;
-		this.empDOJ = empDOJ;
-		this.empDeptId = empDeptId;
-		this.empGrade = empGrade;
-		this.empDesignation = empDesignation;
-		this.empBasic = empBasic;
-		this.empGender = empGender;
-		this.empMarital = empMarital;
-		this.empAddress = empAddress;
-		this.empContact = empContact;
+
+	public EmployeeBean(String id, String firstName, String lastName, Date dOB,
+			Date dOJ, int deptId, String grade, String designation, int basic,
+			char gender, String marital, String address, String contact,
+			String mgrId, int leaveBal) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		DOB = dOB;
+		DOJ = dOJ;
+		this.deptId = deptId;
+		this.grade = grade;
+		this.designation = designation;
+		this.basic = basic;
+		this.gender = gender;
+		this.marital = marital;
+		this.address = address;
+		this.contact = contact;
 		this.mgrId = mgrId;
-		this.empLeaveBal = empLeaveBal;
+		this.leaveBal = leaveBal;
 	}
 
-	
-	
-	//Getters and Setters for Employee properties
-	public String getEmpId() {
-		return empId;
+	@Override
+	public String toString() {
+		return "EmployeeBean [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", DOB=" + DOB + ", DOJ=" + DOJ
+				+ ", deptId=" + deptId + ", grade=" + grade + ", designation="
+				+ designation + ", basic=" + basic + ", gender=" + gender
+				+ ", marital=" + marital + ", address=" + address
+				+ ", contact=" + contact + ", mgrId=" + mgrId + ", leaveBal="
+				+ leaveBal + "]";
 	}
 
-	public void setEmpId(String empId) {
-		this.empId = empId;
+	public String getId() {
+		return id;
 	}
 
-	public String getEmpFirstName() {
-		return empFirstName;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setEmpFirstName(String empFirstName) {
-		this.empFirstName = empFirstName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getEmpLastName() {
-		return empLastName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public void setEmpLastName(String empLastName) {
-		this.empLastName = empLastName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public Date getEmpDOB() {
-		return empDOB;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public void setEmpDOB(Date empDOB) {
-		this.empDOB = empDOB;
+	public Date getDOB() {
+		return DOB;
 	}
 
-	public Date getEmpDOJ() {
-		return empDOJ;
+	public void setDOB(Date dOB) {
+		DOB = dOB;
 	}
 
-	public void setEmpDOJ(Date empDOJ) {
-		this.empDOJ = empDOJ;
+	public Date getDOJ() {
+		return DOJ;
 	}
 
-	public int getEmpDeptId() {
-		return empDeptId;
+	public void setDOJ(Date dOJ) {
+		DOJ = dOJ;
 	}
 
-	public void setEmpDeptId(int empDeptId) {
-		this.empDeptId = empDeptId;
+	public int getDeptId() {
+		return deptId;
 	}
 
-	public String getEmpGrade() {
-		return empGrade;
+	public void setDeptId(int deptId) {
+		this.deptId = deptId;
 	}
 
-	public void setEmpGrade(String empGrade) {
-		this.empGrade = empGrade;
+	public String getGrade() {
+		return grade;
 	}
 
-	public String getEmpDesignation() {
-		return empDesignation;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 
-	public void setEmpDesignation(String empDesignation) {
-		this.empDesignation = empDesignation;
+	public String getDesignation() {
+		return designation;
 	}
 
-	public int getEmpBasic() {
-		return empBasic;
+	public void setDesignation(String designation) {
+		this.designation = designation;
 	}
 
-	public void setEmpBasic(int empBasic) {
-		this.empBasic = empBasic;
+	public int getBasic() {
+		return basic;
 	}
 
-	public char getEmpGender() {
-		return empGender;
+	public void setBasic(int basic) {
+		this.basic = basic;
 	}
 
-	public void setEmpGender(char empGender) {
-		this.empGender = empGender;
+	public char getGender() {
+		return gender;
 	}
 
-	public String getEmpMarital() {
-		return empMarital;
+	public void setGender(char gender) {
+		this.gender = gender;
 	}
 
-	public void setEmpMarital(String empMarital) {
-		this.empMarital = empMarital;
+	public String getMarital() {
+		return marital;
 	}
 
-	public String getEmpAddress() {
-		return empAddress;
+	public void setMarital(String marital) {
+		this.marital = marital;
 	}
 
-	public void setEmpAddress(String empAddress) {
-		this.empAddress = empAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getEmpContact() {
-		return empContact;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public void setEmpContact(String empContact) {
-		this.empContact = empContact;
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 	public String getMgrId() {
@@ -202,27 +207,12 @@ public class EmployeeBean implements Serializable {
 		this.mgrId = mgrId;
 	}
 
-	public int getEmpLeaveBal() {
-		return empLeaveBal;
+	public int getLeaveBal() {
+		return leaveBal;
 	}
 
-	public void setEmpLeaveBal(int empLeaveBal) {
-		this.empLeaveBal = empLeaveBal;
+	public void setLeaveBal(int leaveBal) {
+		this.leaveBal = leaveBal;
 	}
-
 	
-	//toString method for Employee
-	@Override
-	public String toString() {
-		return "Employee [empId=" + empId + ", empFirstName=" + empFirstName
-				+ ", empLastName=" + empLastName + ", empDOB=" + empDOB + ", empDOJ="
-				+ empDOJ + ", empDeptId=" + empDeptId + ", empGrade="
-				+ empGrade + ", empDesignation=" + empDesignation
-				+ ", empBasic=" + empBasic + ", empGender=" + empGender
-				+ ", empMarital=" + empMarital + ", empAddress=" + empAddress
-				+ ", empContact=" + empContact + ", mgrId=" + mgrId
-				+ ", empLeaveBal=" + empLeaveBal + "]";
-	}
-
-
 }

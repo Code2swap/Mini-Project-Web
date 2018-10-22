@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.capgemini.ems.bean.UserBean;
+import com.capgemini.ems.exception.EMSException;
 import com.capgemini.ems.service.IAuthenticationService;
 
 @Controller
@@ -20,23 +21,38 @@ public class LoginController {
 	@Autowired
 	private IAuthenticationService authenticationService;
 
-	@RequestMapping(value = "/userHome")
-	public String displayUserHome(@Valid @ModelAttribute("userDetails") UserBean user, BindingResult bindingResult, Model model) {
-		System.out.println("Diplaying Home Page for Users");
-		user = authenticationService.getUser(user.getUserName(), user.getUserPassword());
-		return "UserHome";
+	@RequestMapping(value = "/displayLogin")
+	public String displayLogin(Model model) {
+		System.out.println("Displaying Login Page");
+		model.addAttribute("userDetails", new UserBean());
+		return "Login";
 	}
 	
-	@RequestMapping(value = "/adminHome")
-	public String displayAdminHome() {
+	@RequestMapping(value = "/userHome")
+	public String displayUserHome(@Valid @ModelAttribute("userDetails") UserBean user, BindingResult bindingResult, Model model) {
+		System.out.println("Diplaying Home Page for Admin/Employee");
 		
-		return "AdminHome";
-	}
-
-	@RequestMapping(value = "/employeeHome")
-	public String displayEmployeeHome() {
-
-		return "EmployeeHome";
+		boolean hasError = bindingResult.hasErrors();
+		System.out.println("Has Error: " + hasError);
+		if(hasError) {
+			return "Login";
+		}
+		String home = "LoginAgain";
+		try {
+			user = authenticationService.getUser(user.getUserName(), user.getUserPassword());
+			System.out.println(user);
+			model.addAttribute("userDetails", user);
+			if(user.getUserType().equals("ADMIN")) {
+				home = "AdminHome";
+			} else {
+				home = "EmployeeHome";
+			}
+		} catch (EMSException e) {
+			// use logger
+			System.out.println(e.getMessage());
+		}
+		
+		return home;
 	}
 
 	// internal exceptional handler

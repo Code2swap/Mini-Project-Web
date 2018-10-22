@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body align="center" background="images/ems-bg.gif">
+<body align="center">
 	<h1>Employee Maintenance System</h1>
 	<a href="displayLogin.obj">Login</a>
 </body>

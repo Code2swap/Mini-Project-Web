@@ -35,14 +35,15 @@ INSERT INTO Department VALUES(121, 'JEE');
 INSERT INTO Department VALUES(122, 'BI');
 INSERT INTO Department VALUES(123, 'SAP');
 INSERT INTO Department VALUES(124, 'PEGA');
+INSERT INTO Department VALUES(125, 'IOT');
 
 CREATE TABLE Grade_Master(Grade_Code VARCHAR2(2), Description VARCHAR2(10),
 Min_Salary NUMBER, Max_Salary NUMBER);
 
 
-CREATE TABLE Leave_History(Leave_Id NUMBER, Emp_id VARCHAR2(6) REFERENCES Employee(emp_id),
-date_applied DATE, noofdays_applied NUMBER, date_from DATE, date_to DATE,
-status VARCHAR2(20) CHECK (status IN ('Applied','Approved','Rejected')));
+CREATE TABLE Leave_History(Leave_Id NUMBER, Emp_id VARCHAR2(6) REFERENCES Employee(Emp_Id),
+Date_Applied DATE, Noofdays_Applied NUMBER, Date_From DATE, Date_To DATE,
+Status VARCHAR2(20) CHECK (Status IN ('Applied','Approved','Rejected')));
 
 CREATE SEQUENCE user_seq START WITH 1005 INCREMENT BY 1;
 CREATE SEQUENCE seq START WITH 10000 INCREMENT BY 10;

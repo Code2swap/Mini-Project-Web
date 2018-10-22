@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.ems.bean.DepartmentBean;
 import com.capgemini.ems.bean.EmployeeBean;
 import com.capgemini.ems.bean.EmployeeLeaveBean;
 import com.capgemini.ems.dao.IEmployeeDao;
@@ -76,6 +77,21 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	@Override
 	public boolean approveLeave(int leaveId) throws EMSException {
 		return employeeDao.approveLeave(leaveId);
+	}
+
+	@Override
+	public List<String> getAllDepartments() throws EMSException {
+		return employeeDao.getAllDepartments();
+	}
+
+	@Override
+	public List<String> getAllGrades() {
+		return employeeDao.getAllGrades();
+	}
+
+	@Override
+	public List<String> getAllMaritals() {
+		return employeeDao.getAllMaritals();
 	}
 
 }

@@ -8,9 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body align="center">
+<body>
+	<h1><center>Search Employee By First Name</center></h1>
 	<form:form action="searchResultsByFirstName.obj">
-		<table>
+		<table align="center">
 			<tr>
 				<td>Enter First Name to search :</td>
 				<td><input type="text" name="firstName" /></td>

@@ -1,5 +1,6 @@
 package com.capgemini.ems.dao;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,6 +18,7 @@ import com.capgemini.ems.exception.EMSException;
 @Transactional
 public class EmployeeDaoImpl implements IEmployeeDao {
 
+	
 	@PersistenceContext
 	EntityManager eManager;
 	
@@ -74,7 +76,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 			throws EMSException {
 		String qryStr = "SELECT employee FROM EmployeeBean employee WHERE employee.deptId"
 				+ " IN (SELECT DISTINCT dept.deptId FROM DepartmentBean dept WHERE"
-				+ " dept.deptName IN :deptNames)";
+				+ " dept.deptName IN (:deptNames))";
 		
 		TypedQuery<EmployeeBean> query = eManager.createQuery(qryStr, EmployeeBean.class);
 		query.setParameter("deptNames", empDeptNames);
@@ -85,7 +87,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	@Override
 	public List<EmployeeBean> searchByGrade(List<String> empGrades)
 			throws EMSException {
-		String qryStr = "SELECT employee FROM EmployeeBean employee WHERE employee.grade IN :grades";
+		String qryStr = "SELECT employee FROM EmployeeBean employee WHERE employee.grade IN (:grades)";
 		
 		TypedQuery<EmployeeBean> query = eManager.createQuery(qryStr, EmployeeBean.class);
 		query.setParameter("grades", empGrades);
@@ -101,7 +103,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	@Override
 	public List<EmployeeBean> searchByMarital(List<String> empMarital)
 			throws EMSException {
-		String qryStr = "SELECT employee FROM EmployeeBean employee WHERE employee.marital IN :maritals";
+		String qryStr = "SELECT employee FROM EmployeeBean employee WHERE employee.marital IN (:maritals)";
 		
 		TypedQuery<EmployeeBean> query = eManager.createQuery(qryStr, EmployeeBean.class);
 		query.setParameter("maritals", empMarital);
@@ -112,14 +114,31 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	@Override
 	public boolean applyLeave(EmployeeLeaveBean employeeLeave)
 			throws EMSException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success = false;
+		try {
+			eManager.persist(employeeLeave);
+			success = true;
+		} catch (Exception e) {
+			
+			throw new EMSException(e.getMessage());
+		}
+		return success;
 	}
 
 	@Override
 	public boolean rejectLeave(int leaveId) throws EMSException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success=false;
+		try {
+		String qryStr ="UPDATE EmployeeLeaveBean employeeLeave SET employeeLeave.status = :rejected  WHERE employeeLeave.leaveId = :leaveId";
+		TypedQuery<EmployeeLeaveBean> query = eManager.createQuery(qryStr, EmployeeLeaveBean.class);
+		query.setParameter("rejected", "Rejected");
+		query.setParameter("leaveId",leaveId);
+		success = true;
+		} catch (Exception e) {
+		
+			throw new EMSException(e.getMessage());
+		}
+		return success;
 	}
 
 	@Override
@@ -136,8 +155,37 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	@Override
 	public boolean approveLeave(int leaveId) throws EMSException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success=false;
+		try {
+		String qryStr ="UPDATE EmployeeLeaveBean employeeLeave SET employeeLeave.status = :approved  WHERE employeeLeave.leaveId = :leaveId";
+		TypedQuery<EmployeeLeaveBean> query = eManager.createQuery(qryStr, EmployeeLeaveBean.class);
+		query.setParameter("approved", "Approved");
+		query.setParameter("leaveId",leaveId);
+		success = true;
+		} catch (Exception e) {
+			throw new EMSException(e.getMessage());
+		}
+		return success;
+	}
+
+	@Override
+	public List<String> getAllDepartments() throws EMSException {
+		String qry = "SELECT dept.deptName FROM DepartmentBean dept";
+		TypedQuery<String> query = eManager.createQuery(qry, String.class);
+		List<String> deptList = query.getResultList();
+		return deptList;
+	}
+
+	@Override
+	public List<String> getAllGrades() {
+		String[] grades = {"M1", "M2", "M3", "M4", "M5", "M6", "M7"};
+		return Arrays.asList(grades);
+	}
+
+	@Override
+	public List<String> getAllMaritals() {
+		String[] maritals = {"Married", "Single", "Seperated", "Widowed", "Divorced"};
+		return Arrays.asList(maritals);
 	}
 
 }

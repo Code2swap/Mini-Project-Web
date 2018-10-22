@@ -6,25 +6,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Search By Department</title>
 </head>
-<body align="center">
-	<form:form method="post" action="searchResultsByDepartment.obj" modelAttribute="departments">
-		<form:select multiple="true" path="departmentList">
-
-			<h1>Select Departments Name to search :</h1>
-
-			<select>
-				<option disabled selected value>-- select an option --</option>
-				<form:options items="${departmentList}" var="department"/>
-				<option value="${department.deptName}"></option>
-			</select>
-		</form:select>
-		<input type="submit" value="Search" />
-
-		<input type="reset" value="Clear" />
-
-
+<body>
+	<form:form action="searchResultsByDepartment.obj" method="POST"
+		modelAttribute="departmentListObject">
+		<table align="center">
+			<tr>
+				<td>Select Departments</td>
+				<td><form:checkboxes items="${departmentListObject.departments}"
+				path="departments"/></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit"/></td>
+				<td><input type="reset" value="Clear"/></td>
+			</tr>
+		</table>
 	</form:form>
+	
+				
 </body>
 </html>

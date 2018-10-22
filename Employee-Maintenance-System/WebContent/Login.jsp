@@ -20,7 +20,7 @@
 			}
 		</style>
 	</head>
-	<body align="center" style="background-color: pink">
+	<body align="center">
 		<h1>Employee Maintenance System</h1>
 		<form:form action="userHome.obj" modelAttribute="userDetails">
 			<table align="center">

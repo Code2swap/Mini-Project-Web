@@ -9,12 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Apply for Leave</h1>
+	<h1><center>Apply for Leave</center></h1>
 	<form:form action="leaveApplied.obj" modelAttribute="employeeLeave">
-		<table>
+		<table align="center">
 			<tr>
 				<td>Employee ID</td>
-				<td><input value="${employeeLeave.empId}" readonly></td>
+				<td><form:input path="empId" value="${employeeLeave.empId}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td>From Date</td>

@@ -9,9 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Search By Id</title>
 </head>
-<body align="center">
+<body>
+	<h1><center>Search Employee By ID</center></h1>
 	<form:form action="searchResultsById.obj">
-		<table>
+		<table align="center">
 			<tr>
 				<td>Enter id to search :</td>
 				<td><input type="text" name="searchId" /></td>

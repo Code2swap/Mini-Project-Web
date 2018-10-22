@@ -19,8 +19,8 @@ public class EmployeeLeaveBean implements Serializable {
 
 	@Id
 	@Column(name = "leave_id")
-	@SequenceGenerator(name = "leaveSeq", sequenceName = "LEAVE_SEQ", allocationSize = 1, initialValue = 10001)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "leaveSeq")
+	/*@SequenceGenerator(name = "leaveSeq", sequenceName = "LEAVE_SEQ", allocationSize = 1, initialValue = 10001)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "leaveSeq")*/
 	private int leaveId;
 	
 	@Column(name = "emp_id")

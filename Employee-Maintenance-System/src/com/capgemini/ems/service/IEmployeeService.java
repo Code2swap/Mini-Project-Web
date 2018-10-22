@@ -2,6 +2,7 @@ package com.capgemini.ems.service;
 
 import java.util.List;
 
+import com.capgemini.ems.bean.DepartmentBean;
 import com.capgemini.ems.bean.EmployeeBean;
 import com.capgemini.ems.bean.EmployeeLeaveBean;
 import com.capgemini.ems.exception.EMSException;
@@ -30,4 +31,10 @@ public interface IEmployeeService {
 	EmployeeBean getEmployeeById(String empId) throws EMSException;
 
 	List<EmployeeBean> searchByMarital(List<String> empMarital) throws EMSException;
+
+	List<String> getAllDepartments() throws EMSException;
+
+	List<String> getAllGrades();
+
+	List<String> getAllMaritals();
 }

@@ -9,6 +9,7 @@
 <title>Search By Department</title>
 </head>
 <body>
+	<h1><center>Search Employee By Department</center></h1>
 	<form:form action="searchResultsByDepartment.obj" method="POST"
 		modelAttribute="departmentListObject">
 		<table align="center">

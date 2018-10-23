@@ -18,7 +18,7 @@
 		<table align="center">
 			<tr>
 				<td>Employee ID</td>
-				<td><input value="${employeeLeave.empId}" readonly></td>
+				<td><form:input path="empId" value="${employeeLeave.empId}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td>From Date</td>

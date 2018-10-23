@@ -45,7 +45,14 @@ public class LoginController {
 			if(user.getUserType().equals("ADMIN")) {
 				home = "AdminHome";
 			} else {
-				home = "EmployeeHome";
+				String designation = authenticationService.getDesignation(user.getEmpId());
+				System.out.println(designation);
+				if(designation.equals("Manager")) {
+					home = "ManagerHome";
+				}
+				else {
+					home = "EmployeeHome";
+				}
 			}
 		} catch (EMSException e) {
 			// use logger

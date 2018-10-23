@@ -18,4 +18,9 @@ public class AuthenticationService implements IAuthenticationService {
 		return authenticationDao.getUser(userName, userPassword);
 	}
 
+	@Override
+	public String getDesignation(String empId) throws EMSException {
+		return authenticationDao.getDesignation(empId);
+	}
+
 }

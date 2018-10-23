@@ -6,5 +6,6 @@ import com.capgemini.ems.exception.EMSException;
 public interface IAuthenticationDao {
 
 	UserBean getUser(String userName, String userPassword) throws EMSException;
-
+	
+	String getDesignation(String empId) throws EMSException;
 }

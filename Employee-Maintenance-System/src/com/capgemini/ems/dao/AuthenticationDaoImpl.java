@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.capgemini.ems.bean.EmployeeBean;
 import com.capgemini.ems.bean.UserBean;
 import com.capgemini.ems.exception.EMSException;
 
@@ -31,6 +32,20 @@ public class AuthenticationDaoImpl implements IAuthenticationDao {
 			throw new EMSException(e.getMessage());
 		}
 		return user;
+	}
+
+	@Override
+	public String getDesignation(String empId) throws EMSException {
+		String designation = null;
+		try {
+			String qStr = "SELECT employee.designation FROM EmployeeBean employee WHERE employee.id = :empId";
+			TypedQuery<String> query = eManager.createQuery(qStr, String.class);
+			query.setParameter("empId", empId);
+			designation = query.getSingleResult();
+		} catch (Exception e) {
+			throw new EMSException(e.getMessage());
+		}
+		return designation;
 	}
 
 }

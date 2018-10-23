@@ -110,6 +110,29 @@ public class EmployeeController {
 		
 		return "ManageLeave";
 	}
+	
+	@RequestMapping(value = "/rejectLeave")
+	public String rejectLeave(@RequestParam("leaveId") int leaveId) {
+		System.out.println("Going to reject leave");
+		try {
+			employeeService.rejectLeave(leaveId);
+		} catch (EMSException e) {
+			System.out.println(e.getMessage());
+		}
+		return "LeaveRejected";
+	}
+	
+	@RequestMapping(value = "/approveLeave")
+	public String approveLeave(@RequestParam("leaveId") int leaveId) {
+		System.out.println("Going to approve leave");
+		try {
+			employeeService.approveLeave(leaveId);
+		} catch (EMSException e) {
+			System.out.println(e.getMessage());
+		}
+		return "LeaveApproved";
+	}
+	
 	@RequestMapping(value = "/applyLeave")
 	public String applyLeave(@RequestParam("empId") String empId, Model model) {
 

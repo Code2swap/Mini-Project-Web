@@ -24,6 +24,6 @@
 		<h1><center>Apply For Leave</center></h1>
 		<center><a href = "applyLeave.obj?empId=${userDetails.empId}">Apply</a></center>
 		<h1><center>Manage Leave</center></h1>
-		<center><a href = "manageLeave.obj?empId=${userDetails.empId}">Apply</a></center>
+		<center><a href = "manageLeave.obj?empId=${userDetails.empId}">Manage</a></center>
 	</body>
 </html>

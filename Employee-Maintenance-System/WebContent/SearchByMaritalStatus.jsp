@@ -9,6 +9,7 @@
 <title>Search By Department</title>
 </head>
 <body>
+	<h1><center>Search Employee By Marital Status</center></h1>
 	<form:form action="searchResultsByMarital.obj" method="POST"
 		modelAttribute="maritalListObject">
 		<table align="center">

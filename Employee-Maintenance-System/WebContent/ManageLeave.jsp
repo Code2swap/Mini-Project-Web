@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+	button {
+		cursor: pointer;
+	}
+</style>
 </head>
 <body>
-	<h1>List of Leaves to Manage(Status = Applied)</h1>
+	<h1><center>List of Leaves to Manage(Status = Applied)</center></h1>
 	<c:choose>
 		<c:when test="${employeeLeaveList.size()>0}">
 			<table border="2" align="center" bgcolor="#EFC8C8">
@@ -30,8 +37,8 @@
 						<td>${leave.fromDate}</td>
 						<td>${leave.toDate}</td>
 						<td>${leave.status}</td>
-						<td>Approve</td>
-						<td>Reject</td>
+						<td><button onclick="location.href='approveLeave.obj?leaveId=${leave.leaveId}'">Approve</button></td>
+						<td><button onclick="location.href='rejectLeave.obj?leaveId=${leave.leaveId}'">Reject</button></td>
 					</tr>
 				</c:forEach>
 			</table>

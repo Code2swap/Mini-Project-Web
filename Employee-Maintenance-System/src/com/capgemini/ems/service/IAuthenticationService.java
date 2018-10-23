@@ -7,4 +7,6 @@ public interface IAuthenticationService {
 
 	UserBean getUser(String userName, String userPassword) throws EMSException;
 
+	String getDesignation(String empId) throws EMSException;
+
 }

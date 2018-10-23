@@ -38,7 +38,7 @@ public class EmployeeLeaveBean implements Serializable {
 	@Column(name = "to_date")
 	private Date toDate;
 	
-	private String status; // drop down with values("Applied", "Approved", "Rejected")
+	private String status; // values("Applied", "Approved", "Rejected")
 
 	public EmployeeLeaveBean() {
 	}

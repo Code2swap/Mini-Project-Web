@@ -96,7 +96,20 @@ public class EmployeeController {
 		return "SearchByMaritalStatus";
 
 	}
-
+	@RequestMapping(value = "/manageLeave")
+	public String manageLeave(@RequestParam("empId") String empId, Model model) {
+		System.out.println("Going to manage Leave");
+		System.out.println(empId);
+		try {
+			List<EmployeeLeaveBean> employeeLeaveList = employeeService.getAllAppliedLeaves(empId);
+			model.addAttribute("employeeLeaveList", employeeLeaveList);
+			
+		} catch (EMSException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return "ManageLeave";
+	}
 	@RequestMapping(value = "/applyLeave")
 	public String applyLeave(@RequestParam("empId") String empId, Model model) {
 

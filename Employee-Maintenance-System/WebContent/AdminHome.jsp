@@ -14,10 +14,10 @@ ul {
 </head>
 <body>
 	<h1><center>Admin Console</center></h1>
-	<li>
-		<ul><a href="addEmployee.obj">Add Employee</a></ul>
-		<ul><a href="getEmployeeList.obj">View Employees</a></ul>
-		<ul><a href="getId.obj">Update Employee</a></ul>
-	</li>
+	<ul>
+		<li><a href="addEmployee.obj">Add Employee</a></li>
+		<li><a href="getEmployeeList.obj">View Employees</a></li>
+		<li><a href="getId.obj">Update Employee</a></li>
+	</ul>
 </body>
 </html>

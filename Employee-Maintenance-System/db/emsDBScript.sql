@@ -42,7 +42,7 @@ Min_Salary NUMBER, Max_Salary NUMBER);
 
 
 CREATE TABLE Leave_History(Leave_Id NUMBER, Emp_id VARCHAR2(6) REFERENCES Employee(Emp_Id),
-Date_Applied DATE, Noofdays_Applied NUMBER, Date_From DATE, Date_To DATE,
+Date_Applied DATE, Noofdays_Applied NUMBER, From_Date DATE, To_Date DATE,
 Status VARCHAR2(20) CHECK (Status IN ('Applied','Approved','Rejected')));
 
 CREATE SEQUENCE user_seq START WITH 1005 INCREMENT BY 1;

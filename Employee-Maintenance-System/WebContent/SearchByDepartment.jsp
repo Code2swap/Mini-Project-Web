@@ -12,7 +12,7 @@
 	<h1><center>Search Employee By Department</center></h1>
 	<form:form action="searchResultsByDepartment.obj" method="POST"
 		modelAttribute="departmentListObject">
-		<table align="center">
+		<table border="2" align="center">
 			<tr>
 				<td>Select Departments</td>
 				<td><form:checkboxes items="${departmentListObject.departments}"

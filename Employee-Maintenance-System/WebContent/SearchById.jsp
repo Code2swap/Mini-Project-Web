@@ -12,7 +12,7 @@
 <body>
 	<h1><center>Search Employee By ID</center></h1>
 	<form:form action="searchResultsById.obj">
-		<table align="center">
+		<table border="2" align="center">
 			<tr>
 				<td>Enter id to search :</td>
 				<td><input type="text" name="searchId" /></td>

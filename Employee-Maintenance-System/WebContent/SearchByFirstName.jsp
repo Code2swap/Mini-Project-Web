@@ -11,7 +11,7 @@
 <body>
 	<h1><center>Search Employee By First Name</center></h1>
 	<form:form action="searchResultsByFirstName.obj">
-		<table align="center">
+		<table border="2" align="center">
 			<tr>
 				<td>Enter First Name to search :</td>
 				<td><input type="text" name="firstName" /></td>

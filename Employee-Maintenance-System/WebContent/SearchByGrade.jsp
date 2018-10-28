@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Search By Department</title>
+<title>Search By Grade</title>
 </head>
 <body>
 	<h1><center>Search Employee By Grade</center></h1>
 	<form:form action="searchResultsByGrade.obj" method="POST"
 		modelAttribute="gradeListObject">
-		<table align="center">
+		<table border="2" align="center">
 			<tr>
 				<td>Select Grades</td>
 				<td><form:checkboxes items="${gradeListObject.grades}"

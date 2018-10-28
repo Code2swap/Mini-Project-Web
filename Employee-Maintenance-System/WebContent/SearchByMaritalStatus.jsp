@@ -12,7 +12,7 @@
 	<h1><center>Search Employee By Marital Status</center></h1>
 	<form:form action="searchResultsByMarital.obj" method="POST"
 		modelAttribute="maritalListObject">
-		<table align="center">
+		<table border="2" align="center">
 			<tr>
 				<td>Select Marital Status</td>
 				<td><form:checkboxes items="${maritalListObject.maritals}"

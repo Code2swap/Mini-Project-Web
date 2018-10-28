@@ -7,7 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.ems.bean.DepartmentBean;
 import com.capgemini.ems.bean.EmployeeBean;
+import com.capgemini.ems.bean.EmployeeGradeBean;
 import com.capgemini.ems.dao.IAdminDao;
 import com.capgemini.ems.exception.EMSException;
 
@@ -19,37 +21,37 @@ public class AdminServiceImpl implements IAdminService {
 	private IAdminDao adminDao;
 
 	@Override
-	public boolean addEmployee(EmployeeBean employee) {
+	public boolean addEmployee(EmployeeBean employee) throws EMSException {
 		
 		return adminDao.addEmployee(employee);
 	}
 
 	@Override
-	public List<Integer> getDepartmentList() {
+	public List<DepartmentBean> getDepartmentList() throws EMSException {
 		
 		return adminDao.getDepartmentList();
 	}
 
 	@Override
-	public List<String> getGradeList() {
+	public List<EmployeeGradeBean> getGradeList() throws EMSException {
 		
 		return adminDao.getGradeList();
 	}
 
 	@Override
-	public List<String> getMaritalStatusList() {
+	public List<String> getMaritalStatusList() throws EMSException {
 		
 		return adminDao.getMaritalStatusList();
 	}
 
 	@Override
-	public List<EmployeeBean> getEmployeeDetails() {
+	public List<EmployeeBean> getEmployeeDetails() throws EMSException {
 		
 		return adminDao.getEmployeeDetails();
 	}
 
 	@Override
-	public EmployeeBean findItem(String employeeId) {
+	public EmployeeBean findItem(String employeeId) throws EMSException {
 		
 		return adminDao.findItem(employeeId);
 	}

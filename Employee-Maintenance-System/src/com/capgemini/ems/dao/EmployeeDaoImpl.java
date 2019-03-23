@@ -170,6 +170,11 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	public boolean approveLeave(int leaveId) throws EMSException {
 		boolean success = false;
 		try {
+			// first check if there are sufficient leave balance then only approve
+			// write code
+			
+			
+			// then approve
 			String qryStr = "UPDATE EmployeeLeaveBean employeeLeave SET employeeLeave.status = :approved  WHERE employeeLeave.leaveId = :leaveId";
 			Query query = eManager.createQuery(qryStr);
 			query.setParameter("approved", "Approved");

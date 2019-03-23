@@ -1,0 +1,52 @@
+@charset "ISO-8859-1";
+
+/*
+	background-color on input:hover/checked will not work, do it by custom checkbox
+	https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+*/
+
+h1 {
+	text-align: center;
+}
+
+table {
+	border: none;
+	margin: auto;
+	border-spacing: 10px;
+	border-collapse: seperate;
+}
+
+td {
+	border: none;
+	height: 25px;
+}
+
+input[readonly] {
+	background-color: #eee;
+}
+
+.inputBtn {
+	width: 90px;
+	height: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	/* text-decoration: underline; */
+	border: none;
+}
+
+.checkboxes {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	margin: 0px 10px; /* [top bottom] [left right] */
+}
+/* .checkboxes:hover {
+		height: 25px;
+  		width: 25px;
+		background-color: #ccc;
+}
+.checkboxes:checked {
+	height: 25px;
+	width: 25px;
+	background-color: #2196F3;
+} */

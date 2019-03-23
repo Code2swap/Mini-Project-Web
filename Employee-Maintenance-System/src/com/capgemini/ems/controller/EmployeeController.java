@@ -60,8 +60,9 @@ public class EmployeeController {
 		try {
 			List<String> departmentList = employeeService.getAllDepartments();
 			System.out.println(departmentList);
+			model.addAttribute("departmentList", departmentList);
+			// Create and Add empty deptListBean to get the checked boxes
 			DepartmentListBean departmentListObject = new DepartmentListBean();
-			departmentListObject.setDepartments(departmentList);
 			model.addAttribute("departmentListObject", departmentListObject);
 		} catch (EMSException e) {
 			System.out.println(e.getMessage());
@@ -76,10 +77,10 @@ public class EmployeeController {
 		System.out.println("Going to search by Grade");
 		List<String> gradeList = employeeService.getAllGrades();
 		System.out.println(gradeList);
+		model.addAttribute("gradeList", gradeList);
 		GradeListBean gradeListObject = new GradeListBean();
-		gradeListObject.setGrades(gradeList);
 		model.addAttribute("gradeListObject", gradeListObject);
-
+		
 		return "SearchByGrade";
 
 	}
@@ -90,8 +91,8 @@ public class EmployeeController {
 		System.out.println("Going to search by Marital Status");
 		List<String> maritalList = employeeService.getAllMaritals();
 		System.out.println(maritalList);
+		model.addAttribute("maritalList", maritalList);
 		MaritalListBean maritalListObject = new MaritalListBean();
-		maritalListObject.setMaritals(maritalList);
 		model.addAttribute("maritalListObject", maritalListObject);
 		return "SearchByMaritalStatus";
 
@@ -148,11 +149,12 @@ public class EmployeeController {
 	@RequestMapping(value = "/leaveApplied")
 	public String leaveApplied(@Valid @ModelAttribute("employeeLeave") EmployeeLeaveBean employeeLeave, Model model) {
 		boolean success = false;
-		
+		System.out.println("inside leave applied...");
 		try {
 			System.out.println(employeeLeave);
 			Date today = Date.valueOf(LocalDate.now());
-			if (employeeLeave.getFromDate().compareTo(today) <= 0) {
+			
+			/*if (employeeLeave.getFromDate().compareTo(today) <= 0) {
 				//logger
 				System.err.println("FROM DATE must be ahead of today");
 			}
@@ -161,10 +163,10 @@ public class EmployeeController {
 				System.err.println("TO DATE must be ahead of FROM DATE");
 				model.addAttribute("employeeLeave", employeeLeave);
 				return "ApplyLeaveAgain";
-			}
+			}*/
 			
 			employeeLeave.setLeaveId(leaveId++);
-			employeeLeave.setAppliedDate(Date.valueOf(LocalDate.now()));
+			employeeLeave.setAppliedDate(today);
 			employeeLeave.setStatus("Applied");
 			int leaveDuration = 1 + (int) TimeUnit.MILLISECONDS
 					.toDays(employeeLeave.getToDate().getTime() - employeeLeave.getFromDate().getTime());

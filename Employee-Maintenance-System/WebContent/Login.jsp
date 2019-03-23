@@ -22,24 +22,22 @@
 	</head>
 	<body align="center">
 		<h1>Employee Maintenance System</h1>
-		<form:form action="userHome.obj" modelAttribute="userDetails">
+		<form action="userHome.obj" >
 			<table align="center">
 				<tr>
 					<td>Username:</td>
-					<td><form:input type="text" path="userName"/>
-					<form:errors path="userName"/></td>
+					<td><input type="text" name="name" />
 				</tr>
 				<tr>
 					<td>Password:</td>
-					<td><form:input type="password" path="userPassword"/>
-					<form:errors path="userPassword"/></td>
+					<td><input type="password" name="pass" />
 				</tr>
 				<tr>
 					<td><input class="inputBtn" type="submit" value="Login"></td>
 					<td><input class="inputBtn" type="reset" value="Clear"></td>
 				</tr>
 			</table>
-		</form:form>
+		</form>
 		
 	</body>
 </html>

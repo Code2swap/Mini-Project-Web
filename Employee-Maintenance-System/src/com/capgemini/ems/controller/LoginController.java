@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.capgemini.ems.bean.UserBean;
@@ -29,17 +30,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/userHome")
-	public String displayUserHome(@Valid @ModelAttribute("userDetails") UserBean user, BindingResult bindingResult, Model model) {
+	public String displayUserHome(@RequestParam("name") String userName, 
+			@RequestParam("pass") String userPassword, Model model) {
 		System.out.println("Diplaying Home Page for Admin/Employee");
-		
-		boolean hasError = bindingResult.hasErrors();
-		System.out.println("Has Error: " + hasError);
-		if(hasError) {
-			return "Login";
-		}
+
 		String home = "LoginAgain";
 		try {
-			user = authenticationService.getUser(user.getUserName(), user.getUserPassword());
+			UserBean user = authenticationService.getUser(userName, userPassword);
 			System.out.println(user);
 			model.addAttribute("userDetails", user);
 			if(user.getUserType().equals("ADMIN")) {
